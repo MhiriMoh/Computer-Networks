@@ -1,0 +1,9 @@
+#Alexander Jaskot 1002290166
+#Mohammed M'Hiri  1002455041
+
+	
+	We discovered that sim1 had a bit rate of 1000 bps and a propagation delay of 624166 microseconds. Sim2's bit rate was also 1000 bps and the propagation delay is almost 4 times larger than sim1's. Sim3 had a bit rate of 100 bps, but Sim3's tprop is twice as large as Sim1's.
+
+	An explanation as to how Sim2's tprop is larger than Sim1's is that Sim2 must be simulating a server that is "further away" than Sim1, this would explain the larger tprop.
+
+	Sim2 has a larger bit rate than Sim3, and Sim3's tprop is roughly half as long. 

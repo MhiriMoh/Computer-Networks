@@ -1,0 +1,8 @@
+#Alexander Jaskot, 1002290166
+#Mohammed M'Hiri, 1002455041
+
+In order to implement pseudo-concurrency for our application, we utilized the functionality of the select 
+function inside of an infinite loop which only exits when the server is shut down or an error occurs. Rather 
+than using threads to implement parallel concurrency (which is more efficientas multiple threads are 
+running at the same time) we use select as it is simpler to implement and understand. Thread implementation
+requires the use of OS system calls that otherwise aren't required to be implemented if one uses select. 

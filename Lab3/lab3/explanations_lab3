@@ -1,0 +1,23 @@
+#Alexander Jaskot 1002290166
+#Mohammed M'Hiri  1002455041
+
+	
+	Sim1:
+		R = 999.826419 bps 
+		tprop = 624152.625978 us 
+
+	Sim2:
+		R = 1000.625391 bps 
+		tprop = 2124160.376078 us 
+
+	Sim3:
+		R = 100.006528 bps 
+		tprop = 1340142.260081 us 
+
+	To determine these values, we know that t0 = 2*t + 2*tprop
+									therefore t0 = (2*(numofbits)/R) + 2*tprop
+
+	We send 2 messages so that we are left with 2 equations and 2 unknowns. First R is solved, then we use R to solve for tprop.
+
+	Sim2 has the same bit rate as Sim1 but the propagation delay is larger. Sim2's tprop is larger than Sim1's is that Sim2 must be simulating a server that is "further away" than Sim1.
+

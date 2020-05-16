@@ -1,0 +1,103 @@
+
+1. Briefly describe how ping uses ICMP to find out about IP hosts and the
+information that it collects.
+	Ping uses ICMP in order to get the round trip response time. It does this by making use of ICMP echo request and waits for a reply that send back information pertaining to the reply (eror, time, ip address)
+
+2. Briefly describe how traceroute uses UDP and ICMP together to determine a
+route to a specified host.
+	UDP makes a request to an invalid port number at the routers, and the routers respond with an ICMP error message which will contain the information we are looking for
+
+
+3. Use ping to find values for minimum, average and maximum round trip time to
+www.utoronto.ca. Compare this to the min/avg/max round trip time to
+www.163.com (free e-mail service in China). What causes the difference in
+round trip time to the two servers?
+	www.utoronto.ca --> min = 7.733ms avg = 8.235ms max = 9.826ms
+	www.163.com --> min = 29.951ms avg = 31.111ms max = 35.121ms
+	need to do more hops for 163.com and therefore longer time for complete response
+
+4. The distance from Toronto to China is approximately 10,000 km. If light
+travels at 3x10^8 m/s what is the approximate minimum round trip time from
+your machine to www.163.com? Compare this to the average round trip time
+found in question 1. Explain your findings.
+	33.33ms is the minimum roundtrip time from our machine to China at the speed of light, therefore the china server must be much closer than the distance in this question
+
+
+5. Estimate the round trip ping time to www.bbc.co.uk (British News site)?
+	The distance between Toronto and Britain is 5345 km and the speed of light travels this in 17.8ms
+
+
+6. Find the actual round trip ping time to www.bbc.co.uk and compare it to your
+estimate. Explain your findings.
+	Avg time is 83.273ms which is much higher than the minimum possible time, this makes sense because there is overhead for every network node and the method of sending differs from node to node 
+
+
+7. Find the option in ping which lets you change the packet size. Now ping a
+machine with 10 byte packets and repeat for 10,000 byte packets and
+compare the round trip times.
+	basically the same amount of time for 10 packets (there was a time of approx 9000ms) of both sizes, size doesnt matter
+
+
+8. What is the default packet size for ping?
+	64 Bytes
+
+
+9. Issue the following command to find the server hosting the Harvard website:
+nslookup www.harvard.com
+● The first part of the response informs you which DNS server handled your
+request
+● The second part informs you of the IP address corresponding to the
+domain you queried
+● What is the IP address of the DNS server you queried and what is the IP
+address of the server hosting www.harvard.com?​
+	DNS IP - 128.100.13.50
+	IP Address of harvard - 64.64.9.47
+
+
+10. Use the traceroute command to find the # of hops to the DNS server and web
+server you found in question #2. What is the reason for the difference in
+number of hops? Is the DNS server likely a Local Name Server or a Root Name
+Server?
+	- 1 hop for the DNS server
+	- 30 hops for the web server
+	- DNS server is likely a Local Name Server
+
+
+11. Use the command: netstat --tcp ​to find the number of active TCP
+connections on your machine.
+	There are 16 active TCP connections on this machine
+
+
+12. Open a browser and connect to www.cnn.com. Now issue the same
+command as in question 11 and find the TCP entry corresponding to your new
+http session. Explain your findings.
+	There are now 30 active TCP connections, the new connections are the ones required to access cnn.com
+
+
+13. Use the command: netstat --statistics ​to answer the following
+questions:
+	a) How many ICMP echo requests did your machine receive?
+		4 echo requests
+	
+	b) How many ICMP echo replies did your machine send?
+		198 echo replies
+	
+	c) How many UDP packets to unknown ports did your machine receive?
+		144 packets to unknown ports
+
+
+14. Use the command: ip addr to find the Ethernet address and IP address of
+your machine. What are the addresses?
+	IP address: 128.100.13.52
+	Ethernet address: 08:62:66:44:96:1a
+
+
+15. Perform an nslookup on the IP address of your machine to determine the
+hostname of your machine. What is the hostname?
+	hostname: ug52.eecg.toronto.edu.
+
+
+16. Use the command: ip route show to inspect the local routing table. There
+should be two entries. Explain what each of the entries means.
+	- The default route to networks outside of the utoronto network go through 128.100.13.254
+	- Everything else goes through 128.100.13.0
